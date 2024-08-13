@@ -7,7 +7,7 @@ namespace CarShopManagementAPI.Repositories
         Task<IEnumerable<Car>> GetAllCarsAsync();
         Task<Car> GetCarByIdAsync(Guid id);
         Task<Car> CreateCarAsync(Car car);
-        Task<Car> UpdateCarAsync(Car car);
+        Task<Car> UpdateCarAsync(Guid id, Car car);
         Task<Car> DeleteCarAsync(Car car);
     }
 }

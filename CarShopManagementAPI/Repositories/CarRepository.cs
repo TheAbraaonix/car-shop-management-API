@@ -32,12 +32,13 @@ namespace CarShopManagementAPI.Repositories
             return car;
         }
 
-        public async Task<Car> UpdateCarAsync(Car car)
+        public async Task<Car> UpdateCarAsync(Guid id, Car car)
         {
-            _context.Set<Car>().Update(car);
+            Car foundCar = await GetCarByIdAsync(id);
+            car.Id = foundCar.Id;
+            _context.Entry(foundCar).CurrentValues.SetValues(car);
             await _context.SaveChangesAsync();
-            return car;
-
+            return foundCar;
         }
 
         public async Task<Car> DeleteCarAsync(Car car)
