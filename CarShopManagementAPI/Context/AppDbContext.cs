@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using CarShopManagementAPI.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace CarShopManagementAPI.Context
 {
@@ -8,5 +9,7 @@ namespace CarShopManagementAPI.Context
         {
             
         }
+
+        public DbSet<Car> Cars { get; set; }
     }
 }
